@@ -1,5 +1,9 @@
 <html>
+    <head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
     <body>
+        <h2>Dashboard</h2>
         <?php
             getFromDB();
         ?>
@@ -21,11 +25,6 @@
         {
             die("Connection Failed" . $conn->connect_error);
         }
-        else
-        {
-            echo("Connection Successfull");
-            echo "<br>";
-        }
 
         $sql = "SELECT * FROM `complaints` ";
         $result = $conn->query($sql);
@@ -35,10 +34,10 @@
             while($row = $result->fetch_assoc())
             {
                 echo 
-                "<div>
-                    Name: " . $row['name'] . "
-                    Priority : " . $row['priority'] . "
-                    Complaint : " . $row['complaint'] . "
+                "<div class= 'card' >
+                    Name: " . $row['name'] . "<br>
+                    Priority : " . $row['priority'] . " <br>
+                    Complaint : " . $row['complaint'] . " <br>
                 </div>"
                 ;
             }

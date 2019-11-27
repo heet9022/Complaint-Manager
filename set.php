@@ -6,8 +6,8 @@
         $priority = clean_data($_POST['priority']);
         $complaint = clean_data($_POST['complaint']);
 
-        echo $name . " " . $priority . " " . $complaint;
-        echo "<br>";
+        // echo $name . " " . $priority . " " . $complaint;
+        // echo "<br>";
 
         sendToDB($name, $priority, $complaint);
 
@@ -34,17 +34,12 @@
         {
             die("Connection Failed" . $conn->connect_error);
         }
-        else
-        {
-            echo("Connection Successful");
-            echo "<br>";
-        }
 
         $sql = "INSERT INTO `complaints`(`name`, `priority`, `complaint`) VALUES ( '$name', $priority, '$complaint' )";
 
         if ($conn->query($sql) === TRUE)
         {
-            echo "New record added successfully";
+            echo "Your complant was successfully recieved";
             echo "<br>";
         }
         else 
